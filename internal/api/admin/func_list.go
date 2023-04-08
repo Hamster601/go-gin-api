@@ -44,6 +44,12 @@ type listResponse struct {
 	} `json:"pagination"`
 }
 
+type Pagination struct {
+	Total        int `json:"total"`
+	CurrentPage  int `json:"current_page"`
+	PerPageCount int `json:"per_page_count"`
+}
+
 // List 管理员列表
 // @Summary 管理员列表
 // @Description 管理员列表
