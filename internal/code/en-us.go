@@ -22,6 +22,7 @@ var enUSText = map[int]string{
 	GoVersionError:     "Go Version mismatch",
 	SocketConnectError: "Socket not connected",
 	SocketSendError:    "Socket message sending failed",
+	APIParamIsEmptyError:    "api param is empty",
 
 	AuthorizedCreateError:    "Failed to create caller",
 	AuthorizedListError:      "Failed to get caller list",

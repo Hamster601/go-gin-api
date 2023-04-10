@@ -1,6 +1,8 @@
 package admin
 
 import (
+	"errors"
+
 	"github.com/xinliangnote/go-gin-api/internal/pkg/core"
 	"github.com/xinliangnote/go-gin-api/internal/pkg/password"
 	"github.com/xinliangnote/go-gin-api/internal/repository/mysql/admin"
@@ -14,6 +16,9 @@ type CreateAdminData struct {
 }
 
 func (s *service) Create(ctx core.Context, adminData *CreateAdminData) (id int32, err error) {
+	if adminData.Username == "" || adminData.Password == "" {
+		return 0, errors.New("用户名或密码不能为空")
+	}
 	model := admin.NewModel()
 	model.Username = adminData.Username
 	model.Password = password.GeneratePassword(adminData.Password)

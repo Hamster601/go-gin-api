@@ -22,6 +22,7 @@ var zhCNText = map[int]string{
 	GoVersionError:     "Go 版本不满足要求",
 	SocketConnectError: "Socket 未连接",
 	SocketSendError:    "Socket 消息发送失败",
+	APIParamIsEmptyError: "API请求参数为空,请检查",
 
 	AuthorizedCreateError:    "创建调用方失败",
 	AuthorizedListError:      "获取调用方列表失败",

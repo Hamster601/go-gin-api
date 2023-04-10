@@ -16,12 +16,12 @@ func (s *service) Delete(ctx core.Context, id int32) (err error) {
 	}
 
 	qb := admin.NewQueryBuilder()
-	qb.WhereId(mysql.EqualPredicate, id)
+	qb.WhereId(mysql.EqualPredicate, id)  // 软删除用户
 	err = qb.Updates(s.db.GetDbW().WithContext(ctx.RequestContext()), data)
 	if err != nil {
 		return err
 	}
 
-	s.cache.Del(configs.RedisKeyPrefixLoginUser+password.GenerateLoginToken(id), redis.WithTrace(ctx.Trace()))
+	s.cache.Del(configs.RedisKeyPrefixLoginUser+password.GenerateLoginToken(id), redis.WithTrace(ctx.Trace()))  // 删除缓存
 	return
 }
