@@ -1,7 +1,7 @@
 package authorized
 
 import (
-	"github.com/xinliangnote/go-gin-api/internal/code"
+	//"github.com/xinliangnote/go-gin-api/internal/code"
 	"github.com/xinliangnote/go-gin-api/internal/pkg/core"
 	"github.com/xinliangnote/go-gin-api/internal/repository/mysql"
 	"github.com/xinliangnote/go-gin-api/internal/repository/mysql/authorized_api"
@@ -14,7 +14,7 @@ type SearchAPIData struct {
 func (s *service) ListAPI(ctx core.Context, searchAPIData *SearchAPIData) (listData []*authorized_api.AuthorizedApi, err error) {
 	if searchAPIData == nil {
 		//err = code.APIParamIsEmptyError
-		return 
+		return
 	}
 
 	qb := authorized_api.NewQueryBuilder()
