@@ -51,6 +51,14 @@ type option struct {
 	enableOpenBrowser string
 	alertNotify       proposal.NotifyHandler
 	recordHandler     proposal.RecordHandler
+	enableTrace       bool
+}
+
+// WithEnableTrace 禁用jagerTrace
+func WithEnableTrace() Option {
+	return func(opt *option) {
+		opt.enableTrace = true
+	}
 }
 
 // WithDisablePProf 禁用 pprof
